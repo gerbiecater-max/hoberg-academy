@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<title>Hoberg Academy | Learn Tech, Marketing & Design</title>
+<meta name="description" content="Master Web Development, Mobile Apps, Digital Marketing, and UI/UX Design from active industry experts at Hoberg Academy.">
+<meta name="theme-color" content="#C8001A">
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+
+<style>
+:root {
+  --red: #C8001A;
+  --red-dark: #9a0013;
+  --gold: #D4A843;
+  --black: #0a0000;
+  --black2: #120000;
+  --black3: #1a0003;
+  --cream: #F5EFE6;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--black);color:var(--cream);font-family:'DM Sans',sans-serif;overflow-x:hidden;cursor:none;}
+
+/* CURSOR */
+.cursor{position:fixed;width:10px;height:10px;background:var(--gold);border-radius:50%;pointer-events:none;z-index:9999;transition:transform 0.1s;mix-blend-mode:difference;}
+.cursor-follow{position:fixed;width:36px;height:36px;border:1px solid rgba(212,168,67,0.5);border-radius:50%;pointer-events:none;z-index:9998;transition:all 0.15s ease;}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:22px 60px;display:flex;justify-content:space-between;align-items:center;background:linear-gradient(to bottom,rgba(10,0,0,0.97),transparent);backdrop-filter:blur(4px);}
+.nav-logo{font-family:'Playfair Display',serif;font-size:20px;font-weight:900;color:var(--gold);letter-spacing:3px;text-decoration:none;}
+.nav-links{display:flex;gap:36px;list-style:none;}
+.nav-links a{color:var(--cream);text-decoration:none;font-size:12px;letter-spacing:2px;text-transform:uppercase;opacity:0.7;transition:opacity 0.3s,color 0.3s;}
+.nav-links a:hover{opacity:1;color:var(--red);}
+.nav-cta{background:var(--red)!important;color:#fff!important;padding:10px 24px;border-radius:2px;opacity:1!important;font-weight:600!important;letter-spacing:1.5px!important;}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 80% 70% at 50% 20%,#3d0d0d 0%,#1a0505 35%,#0a0000 70%);}
+.grain{position:absolute;inset:0;opacity:0.04;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
+.hero-content{position:relative;z-index:2;padding:0 60px;max-width:800px;}
+.badge-gold { display: inline-block; background: rgba(212,168,67,0.15); color: var(--gold); border: 1px solid rgba(212,168,67,0.5); padding: 8px 20px; border-radius: 30px; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 24px; animation: pulseGold 2s infinite; }
+@keyframes pulseGold { 0%, 100% { box-shadow: 0 0 5px rgba(212,168,67,0.2); } 50% { box-shadow: 0 0 20px rgba(212,168,67,0.6); } }
+
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(48px,6vw,84px);font-weight:900;line-height:1.05;margin-bottom:20px;}
+.hero h1 em{font-style:italic;color:var(--red);}
+.hero-sub{font-size:17px;line-height:1.8;opacity:0.8;max-width:550px;margin-bottom:40px;}
+.btn-primary{background:var(--gold);color:#000;padding:18px 40px;font-size:13px;letter-spacing:2px;text-transform:uppercase;text-decoration:none;border-radius:2px;font-weight:700;transition:all 0.3s; display: inline-block;}
+.btn-primary:hover{background:#fff;transform:translateY(-2px);box-shadow:0 10px 20px rgba(212,168,67,0.3);}
+
+/* FEATURES (WHY ACADEMY) */
+.features{padding:100px 60px; background: var(--black2); border-top: 1px solid rgba(245,239,230,0.05);}
+.features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;}
+.feat-card h3{font-family:'Playfair Display',serif; font-size:22px; color:var(--gold); margin-bottom:12px;}
+.feat-card p{font-size:14px; opacity:0.6; line-height:1.7;}
+.feat-icon{font-size:32px; margin-bottom:16px; display:block;}
+
+/* COURSES */
+.courses{padding:120px 60px;}
+.section-header{text-align:center; margin-bottom:64px;}
+.section-header h2{font-family:'Playfair Display',serif;font-size:clamp(36px,4vw,56px);font-weight:900;}
+.section-header p{color:var(--red); font-size:12px; letter-spacing:3px; text-transform:uppercase; font-weight:700; margin-bottom:16px;}
+.course-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+.course-card{background:var(--black3); border:1px solid rgba(245,239,230,0.05); padding:40px; border-radius:4px; transition:all 0.4s;}
+.course-card:hover{transform:translateY(-10px); border-color:var(--red); box-shadow:0 10px 30px rgba(200,0,26,0.15);}
+.course-duration{font-size:10px; letter-spacing:2px; text-transform:uppercase; background:rgba(245,239,230,0.1); padding:4px 10px; border-radius:20px; display:inline-block; margin-bottom:20px;}
+.course-card h3{font-family:'Playfair Display',serif; font-size:24px; margin-bottom:16px;}
+.course-card p{font-size:14px; opacity:0.7; line-height:1.6; margin-bottom:24px; min-height: 66px;}
+.tech-stack{display:flex; flex-wrap:wrap; gap:8px; margin-bottom:32px;}
+.tech-tag{font-size:10px; font-weight:600; color:var(--gold); border:1px solid rgba(212,168,67,0.3); padding:4px 8px; border-radius:2px;}
+.course-btn{display:block; text-align:center; padding:14px; border:1px solid var(--cream); color:var(--cream); text-decoration:none; font-size:12px; letter-spacing:2px; text-transform:uppercase; transition:all 0.3s;}
+.course-card:hover .course-btn{background:var(--red); border-color:var(--red); color:#fff;}
+
+/* TALENT POOL SECTION */
+.talent-pool { padding: 120px 60px; background: linear-gradient(to right, var(--black2), #1a0505); display: flex; align-items: center; gap: 60px; border-top: 1px solid rgba(200,0,26,0.2); border-bottom: 1px solid rgba(200,0,26,0.2); }
+.talent-content { flex: 1; }
+.talent-content h2 { font-family: 'Playfair Display', serif; font-size: 48px; margin-bottom: 20px; }
+.talent-content em { color: var(--red); font-style: italic; }
+.talent-content p { font-size: 16px; opacity: 0.8; line-height: 1.8; margin-bottom: 30px; }
+.talent-box { flex: 1; background: var(--black); padding: 40px; border: 1px dashed rgba(212,168,67,0.4); text-align: center; }
+.talent-box h4 { color: var(--gold); margin-bottom: 16px; font-size: 20px; font-family: 'Playfair Display';}
+
+/* FOOTER */
+footer{background:#060000;padding:60px;text-align:center; border-top:1px solid rgba(245,239,230,0.05);}
+.footer-logo{font-family:'Playfair Display',serif;font-size:24px;font-weight:900;color:var(--gold);letter-spacing:2px; margin-bottom:20px;}
+footer a{color:var(--cream); text-decoration:none; opacity:0.5; font-size:13px; margin:0 15px;}
+footer a:hover{opacity:1; color:var(--red);}
+
+/* ANIMATIONS */
+.reveal{opacity:0;transform:translateY(32px);transition:opacity 0.8s ease,transform 0.8s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+
+@media(max-width:768px){
+  nav{padding:18px 24px;}
+  .nav-links{display:none;}
+  .hero-content{padding:0 24px;}
+  .features, .courses, .talent-pool {padding:80px 24px;}
+  .features-grid, .course-grid {grid-template-columns:1fr;}
+  .talent-pool {flex-direction: column;}
+}
+</style>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-follow" id="cursorFollow"></div>
+
+<nav>
+  <a href="#" class="nav-logo">HOBERG ACADEMY</a>
+  <ul class="nav-links">
+    <li><a href="#courses">Curriculum</a></li>
+    <li><a href="#talent">The Talent Pool</a></li>
+    <li><a href="https://hoberg.com.ng" target="_blank">The Agency</a></li>
+    <li><a href="#enroll" class="nav-cta">Apply Now</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="grain"></div>
+  <div class="hero-content reveal">
+    <div class="badge-gold">Cohort 1 Enrollment Open</div>
+    <h1>Master the <br><em>Digital Economy.</em></h1>
+    <p class="hero-sub">Don't just watch tutorials. Learn Web Development, Mobile Apps, and Digital Marketing directly from an active tech agency. Build real projects, get certified, and kickstart your tech career.</p>
+    <a href="#courses" class="btn-primary">View Programs</a>
+  </div>
+</section>
+
+<section class="features">
+  <div class="features-grid">
+    <div class="feat-card reveal">
+      <span class="feat-icon">💻</span>
+      <h3>100% Practical</h3>
+      <p>We don't do boring theory. You will build actual software, run real ad campaigns, and design usable interfaces.</p>
+    </div>
+    <div class="feat-card reveal">
+      <span class="feat-icon">👨‍🏫</span>
+      <h3>Agency Mentors</h3>
+      <p>Learn from the exact developers and marketers who build projects for Hoberg Digital Agency clients every single day.</p>
+    </div>
+    <div class="feat-card reveal">
+      <span class="feat-icon">🚀</span>
+      <h3>Career Ready</h3>
+      <p>Graduate with a complete portfolio of projects, a professional certificate, and the skills to get hired immediately.</p>
+    </div>
+  </div>
+</section>
+
+<section class="courses" id="courses">
+  <div class="section-header reveal">
+    <p>The Curriculum</p>
+    <h2>Our Learning <em>Tracks</em></h2>
+  </div>
+  <div class="course-grid">
+    
+    <div class="course-card reveal">
+      <div class="course-duration">12 Weeks</div>
+      <h3>Software Engineering</h3>
+      <p>Master modern web and mobile app development. Build responsive websites and powerful mobile apps that work on both iOS and Android.</p>
+      <div class="tech-stack">
+        <span class="tech-tag">React Native</span>
+        <span class="tech-tag">Expo</span>
+        <span class="tech-tag">TypeScript</span>
+        <span class="tech-tag">HTML/CSS</span>
+      </div>
+      <a href="https://wa.me/2348104289365?text=I%20want%20to%20enroll%20in%20the%20Software%20Engineering%20track" class="course-btn" target="_blank">Enroll Now</a>
+    </div>
+
+    <div class="course-card reveal">
+      <div class="course-duration">8 Weeks</div>
+      <h3>Digital Marketing</h3>
+      <p>Learn how to drive revenue. Master social media management, content creation, and running highly profitable Meta and TikTok ad campaigns.</p>
+      <div class="tech-stack">
+        <span class="tech-tag">Meta Ads</span>
+        <span class="tech-tag">TikTok Ads</span>
+        <span class="tech-tag">Content Strategy</span>
+        <span class="tech-tag">SEO</span>
+      </div>
+      <a href="https://wa.me/2348104289365?text=I%20want%20to%20enroll%20in%20the%20Digital%20Marketing%20track" class="course-btn" target="_blank">Enroll Now</a>
+    </div>
+
+    <div class="course-card reveal">
+      <div class="course-duration">8 Weeks</div>
+      <h3>Creative Design</h3>
+      <p>Design beautiful, user-friendly interfaces. Learn the psychology of colors, typography, and how to create stunning brand identities.</p>
+      <div class="tech-stack">
+        <span class="tech-tag">Figma</span>
+        <span class="tech-tag">UI/UX</span>
+        <span class="tech-tag">Brand Identity</span>
+        <span class="tech-tag">Prototyping</span>
+      </div>
+      <a href="https://wa.me/2348104289365?text=I%20want%20to%20enroll%20in%20the%20Creative%20Design%20track" class="course-btn" target="_blank">Enroll Now</a>
+    </div>
+
+  </div>
+</section>
+
+<section class="talent-pool" id="talent">
+  <div class="talent-content reveal">
+    <h2>The Hoberg <em>Talent Pool</em></h2>
+    <p>Because we run an active digital agency, we are constantly looking for talented developers, designers, and marketers to join our team for major client projects.</p>
+    <p><strong>Our promise:</strong> The top-performing graduates from every Academy cohort get exclusive priority to join the Hoberg Talent Pool. You learn from us, and when you prove you are ready, we pass paid freelance work directly to you.</p>
+  </div>
+  <div class="talent-box reveal">
+    <h4>Learn. Build. Earn.</h4>
+    <p style="opacity: 0.6; font-size: 14px; margin-bottom: 24px;">Don't just pay for a certificate. Invest in an ecosystem that actually wants to hire you.</p>
+    <div style="font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: var(--red); font-weight: 700;">Flexible Payment Plans Available</div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">HOBERG ACADEMY</div>
+  <div style="margin-bottom: 20px;">
+    <a href="https://hoberg.com.ng" target="_blank">Main Agency Site</a>
+    <a href="https://instagram.com/hoberg.com.ng" target="_blank">Instagram</a>
+    <a href="https://wa.me/2348104289365" target="_blank">Contact Support</a>
+  </div>
+  <p style="font-size: 12px; opacity: 0.3;">© 2026 Hoberg Digital Agency. All rights reserved.</p>
+</footer>
+
+<script>
+// Custom cursor
+const cursor = document.getElementById('cursor');
+const cursorFollow = document.getElementById('cursorFollow');
+let mouseX = 0, mouseY = 0, followX = 0, followY = 0;
+
+document.addEventListener('mousemove', e => {
+  mouseX = e.clientX;
+  mouseY = e.clientY;
+  cursor.style.left = mouseX - 5 + 'px';
+  cursor.style.top = mouseY - 5 + 'px';
+});
+
+function animateCursor() {
+  followX += (mouseX - followX) * 0.12;
+  followY += (mouseY - followY) * 0.12;
+  cursorFollow.style.left = followX - 18 + 'px';
+  cursorFollow.style.top = followY - 18 + 'px';
+  requestAnimationFrame(animateCursor);
+}
+animateCursor();
+
+document.querySelectorAll('a, button').forEach(el => {
+  el.addEventListener('mouseenter', () => { cursor.style.transform = 'scale(2.5)'; cursorFollow.style.transform = 'scale(1.5)'; });
+  el.addEventListener('mouseleave', () => { cursor.style.transform = 'scale(1)'; cursorFollow.style.transform = 'scale(1)'; });
+});
+
+// Scroll reveal
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => entry.target.classList.add('visible'), i * 80);
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1 });
+reveals.forEach(el => observer.observe(el));
+
+// Nav background on scroll
+window.addEventListener('scroll', () => {
+  const nav = document.querySelector('nav');
+  nav.style.background = window.scrollY > 60
+    ? 'rgba(10,0,0,0.97)'
+    : 'linear-gradient(to bottom,rgba(10,0,0,0.97),transparent)';
+});
+</script>
+</body>
+</html>
